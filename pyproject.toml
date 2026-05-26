@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-reposec"
+version = "0.1.0"
+description = "Deep security scanner for git repositories — secrets, PII, vulnerabilities, git history, dependency CVEs."
+requires-python = ">=3.10"
+dependencies = ["requests>=2.31"]
+license = {text = "MIT"}
+authors = [{name = "Nikola Reljin"}]
+keywords = ["security", "secrets", "scanning", "claude-code", "plugin"]
+
+[project.scripts]
+reposec = "claude_reposec.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
