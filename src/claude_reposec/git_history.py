@@ -4,7 +4,7 @@ import subprocess
 from pathlib import Path
 
 from .models import Finding
-from .secrets import SECRET_PATTERNS, _redact
+from .secrets import SECRET_PATTERNS
 
 _SENSITIVE_FILENAMES = [".env", "credentials", "secrets", "id_rsa", "id_ed25519", ".netrc", "*.pem", "*.key"]
 

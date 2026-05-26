@@ -1,4 +1,3 @@
-from pathlib import Path
 from claude_reposec.pii import scan_pii
 
 

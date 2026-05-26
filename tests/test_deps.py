@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 from unittest.mock import patch
 from claude_reposec.deps import scan_deps, _parse_requirements_txt, _parse_package_json
 
