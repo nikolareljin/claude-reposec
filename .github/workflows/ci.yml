@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  python:
+    uses: nikolareljin/ci-helpers/.github/workflows/python.yml@production
+    with:
+      python_version: "3.12"
+      test_command: "pytest tests/ -v"
