@@ -6,7 +6,5 @@
   "homepage": "https://github.com/nikolareljin/claude-reposec",
   "repository": "https://github.com/nikolareljin/claude-reposec",
   "license": "MIT",
-  "keywords": ["security", "scanning", "secrets", "pii", "vulnerabilities", "claude-code"],
-  "skills": "./skills/",
-  "commands": "./commands/"
+  "keywords": ["security", "scanning", "secrets", "pii", "vulnerabilities", "claude-code"]
 }
