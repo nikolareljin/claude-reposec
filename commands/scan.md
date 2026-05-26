@@ -1,3 +1,8 @@
+---
+description: Deep security scan of a git repo — secrets, PII, vulnerabilities, git history, and dependency CVEs
+argument-hint: "[path] [--quick] [--save] [--ci]"
+---
+
 # /scan
 
 Perform a deep security scan of a git repository.
