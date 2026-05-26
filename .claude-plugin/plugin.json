@@ -8,6 +8,5 @@
   "license": "MIT",
   "keywords": ["security", "scanning", "secrets", "pii", "vulnerabilities", "claude-code"],
   "skills": "./skills/",
-  "commands": "./commands/",
-  "agents": "./agents/"
+  "commands": "./commands/"
 }
