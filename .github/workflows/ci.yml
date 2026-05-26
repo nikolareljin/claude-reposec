@@ -11,4 +11,4 @@ jobs:
     uses: nikolareljin/ci-helpers/.github/workflows/python.yml@production
     with:
       python_version: "3.12"
-      test_command: "pytest tests/ -v"
+      test_command: "python -m pip install pytest && pytest tests/ -v"
