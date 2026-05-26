@@ -1,0 +1,10 @@
+{
+  "registry": "nikolareljin-plugins",
+  "name": "claude-reposec",
+  "version": "0.1.0",
+  "description": "Deep security scanning for git repos: secrets, PII, vulnerabilities, git history, and dependency CVEs.",
+  "repository": "https://github.com/nikolareljin/claude-reposec",
+  "install": "claude plugin install nikolareljin/claude-reposec",
+  "requires_python": ">=3.10",
+  "python_package": "pip install git+https://github.com/nikolareljin/claude-reposec"
+}
