@@ -1,4 +1,3 @@
-from pathlib import Path
 from claude_reposec.vulns import scan_vulns
 
 

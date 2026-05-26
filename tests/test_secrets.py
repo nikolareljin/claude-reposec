@@ -1,4 +1,3 @@
-from pathlib import Path
 from claude_reposec.secrets import scan_secrets
 
 
