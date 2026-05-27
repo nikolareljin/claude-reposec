@@ -67,7 +67,7 @@ reposec --version
 **Step 2 — Install the plugin:**
 
 ```
-/plugin install claude-reposec@nikolareljin-plugins
+/plugin install claude-reposec@claude-plugins
 ```
 
 **Step 3 — Restart Claude Code**, then run:
