@@ -1,6 +1,6 @@
 {
   "name": "claude-reposec",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Deep security scanning for git repos: secrets, PII, vulnerabilities, git history, and dependency CVEs.",
   "author": {
     "name": "Nikola Reljin",
