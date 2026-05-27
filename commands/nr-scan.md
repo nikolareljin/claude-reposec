@@ -11,7 +11,7 @@ git history leaks, and dependency CVEs.
 ## Usage
 
 ```
-/scan [path] [--quick] [--save] [--ci]
+/nr-scan [path] [--quick] [--save] [--ci]
 ```
 
 ## Arguments
@@ -35,7 +35,7 @@ If this fails, show the user:
 reposec is not installed. Install it with:
   pipx install git+https://github.com/nikolareljin/claude-reposec
   (or: pip install --user git+https://github.com/nikolareljin/claude-reposec)
-Then re-run /scan.
+Then re-run /nr-scan.
 ```
 
 Do not proceed if `reposec` is not available.

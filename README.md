@@ -58,19 +58,23 @@ reposec --version
 
 ### 2. Install the Claude Code plugin
 
-Add the marketplace (one time):
+**Step 1 — Add the marketplace** (one time, any Claude Code session):
 
 ```
 /plugin marketplace add nikolareljin-plugins github:nikolareljin/claude-plugins
 ```
 
-Then install the plugin:
+**Step 2 — Install the plugin:**
 
 ```
 /plugin install claude-reposec@nikolareljin-plugins
 ```
 
-Restart Claude Code. Run `/scan` to scan the current repository.
+**Step 3 — Restart Claude Code**, then run:
+
+```
+/nr-scan
+```
 
 > **No marketplace needed** — the CLI works fully without Claude Code (see Standalone CLI below).
 
@@ -81,11 +85,11 @@ Restart Claude Code. Run `/scan` to scan the current repository.
 ### In Claude Code
 
 ```
-/scan                          # scan current directory
-/scan path/to/repo             # scan a specific repo
-/scan --quick                  # skip git history (faster)
-/scan --save                   # save report to security-report-YYYY-MM-DD.md
-/scan --ci                     # exit 1 if HIGH/CRITICAL findings exist
+/nr-scan                          # scan current directory
+/nr-scan path/to/repo             # scan a specific repo
+/nr-scan --quick                  # skip git history (faster)
+/nr-scan --save                   # save report to security-report-YYYY-MM-DD.md
+/nr-scan --ci                     # exit 1 if HIGH/CRITICAL findings exist
 ```
 
 ### Standalone CLI
