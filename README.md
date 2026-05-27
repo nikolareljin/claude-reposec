@@ -13,26 +13,68 @@ git history leaks, and dependency CVEs.
 | Vulnerabilities | Flask misconfigs, subprocess injection, SQL string concat, missing auth decorators |
 | Dependencies | CVEs in `requirements.txt` and `package.json` via OSV API |
 
+---
+
 ## Installation
 
-### As a Claude Code plugin
+### 1. Install the Python CLI
+
+The `reposec` CLI is required for both Claude Code plugin and standalone use.
+
+**Linux / WSL (Ubuntu/Debian)**
 
 ```bash
-claude plugin install nikolareljin/claude-reposec
+# Option A: pipx (recommended — isolated, no system conflicts)
+pipx install git+https://github.com/nikolareljin/claude-reposec
+
+# Option B: user install
+pip install --user git+https://github.com/nikolareljin/claude-reposec
 ```
 
-Then install the Python CLI (required):
+> **pipx not installed?** Run: `sudo apt install pipx` (Ubuntu 23.04+) or `pip install --user pipx`
+
+**macOS**
 
 ```bash
-pip install git+https://github.com/nikolareljin/claude-reposec
+# Option A: pipx (recommended)
+brew install pipx
+pipx install git+https://github.com/nikolareljin/claude-reposec
+
+# Option B: user install
+pip3 install --user git+https://github.com/nikolareljin/claude-reposec
 ```
 
-### Standalone CLI (no Claude required)
+**Windows (WSL)**
+
+Same as Linux above. Run inside your WSL terminal.
+
+Verify the install:
 
 ```bash
-pip install git+https://github.com/nikolareljin/claude-reposec
 reposec --version
 ```
+
+---
+
+### 2. Install the Claude Code plugin
+
+Add the marketplace (one time):
+
+```
+/plugin marketplace add nikolareljin-plugins github:nikolareljin/claude-plugins
+```
+
+Then install the plugin:
+
+```
+/plugin install claude-reposec@nikolareljin-plugins
+```
+
+Restart Claude Code. Run `/scan` to scan the current repository.
+
+> **No marketplace needed** — the CLI works fully without Claude Code (see Standalone CLI below).
+
+---
 
 ## Usage
 
@@ -58,6 +100,8 @@ reposec scan --ci                  # CI mode: exit 1 on HIGH/CRITICAL
 reposec scan --output report.md    # write report to specific file
 ```
 
+---
+
 ## CI Integration
 
 ### GitHub Actions
@@ -65,12 +109,14 @@ reposec scan --output report.md    # write report to specific file
 ```yaml
 - name: Security scan
   run: |
-    pip install git+https://github.com/nikolareljin/claude-reposec
+    pip install --user git+https://github.com/nikolareljin/claude-reposec
     reposec scan --ci
 ```
 
 Or use the reusable workflow from [ci-helpers](https://github.com/nikolareljin/ci-helpers)
 if your organization uses that library.
+
+---
 
 ## How it works
 
@@ -89,17 +135,23 @@ if your organization uses that library.
 5. **Dependency scanner**: Parses `requirements.txt` and `package.json`, queries the
    [OSV API](https://osv.dev) for known CVEs, and caches results for 24 hours.
 
+---
+
 ## Privacy
 
 - Secret values are **never** stored or logged. Only redacted previews appear in reports.
 - OSV API queries send only package name and version — no source code, no file paths.
 - Reports written with `--save` should be added to `.gitignore`.
 
+---
+
 ## Requirements
 
 - Python 3.10+
 - Git (for history scanning)
 - Internet access (for OSV dependency CVE lookups)
+
+---
 
 ## License
 

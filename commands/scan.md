@@ -33,7 +33,8 @@ If this fails, show the user:
 
 ```
 reposec is not installed. Install it with:
-  pip install git+https://github.com/nikolareljin/claude-reposec
+  pipx install git+https://github.com/nikolareljin/claude-reposec
+  (or: pip install --user git+https://github.com/nikolareljin/claude-reposec)
 Then re-run /scan.
 ```
 
