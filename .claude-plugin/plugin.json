@@ -1,10 +1,20 @@
 {
   "name": "claude-reposec",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Deep security scanning for git repos: secrets, PII, vulnerabilities, git history, and dependency CVEs.",
-  "author": { "name": "Nikola Reljin", "url": "https://github.com/nikolareljin" },
+  "author": {
+    "name": "Nikola Reljin",
+    "url": "https://github.com/nikolareljin"
+  },
   "homepage": "https://github.com/nikolareljin/claude-reposec",
   "repository": "https://github.com/nikolareljin/claude-reposec",
   "license": "MIT",
-  "keywords": ["security", "scanning", "secrets", "pii", "vulnerabilities", "claude-code"]
+  "keywords": [
+    "security",
+    "scanning",
+    "secrets",
+    "pii",
+    "vulnerabilities",
+    "claude-code"
+  ]
 }

@@ -3,7 +3,7 @@ description: Deep security scan of a git repo — secrets, PII, vulnerabilities,
 argument-hint: "[path] [--quick] [--save] [--ci]"
 ---
 
-# /scan — Repository Security Scan
+# /nr-scan — Repository Security Scan
 
 Perform a deep security scan of a git repository. Detects secrets, PII, code vulnerabilities,
 git history leaks, and dependency CVEs.
