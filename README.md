@@ -61,7 +61,7 @@ reposec --version
 **Step 1 — Add the marketplace** (one time, any Claude Code session):
 
 ```
-/plugin marketplace add nikolareljin-plugins github:nikolareljin/claude-plugins
+/plugin marketplace add github:nikolareljin/claude-plugins
 ```
 
 **Step 2 — Install the plugin:**
