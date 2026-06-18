@@ -160,3 +160,11 @@ if your organization uses that library.
 ## License
 
 MIT — see [LICENSE](LICENSE). See [TERMS.md](TERMS.md) for liability information.
+
+---
+
+## Clone traffic
+
+![Clone traffic](https://raw.githubusercontent.com/nikolareljin/stats/main/charts/claude-reposec.svg)
+
+_Updated daily. Total and unique cloners over the last 14 days._
