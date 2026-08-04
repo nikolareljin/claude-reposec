@@ -1,5 +1,7 @@
 # claude-reposec
 
+[![Website](https://img.shields.io/badge/website-GitHub%20Pages-22c55e)](https://nikolareljin.github.io/claude-reposec/)
+
 Deep security scanning for git repositories. Detects secrets, PII, code vulnerabilities,
 git history leaks, and dependency CVEs.
 
@@ -70,11 +72,13 @@ reposec --version
 /plugin install claude-reposec@nikolareljin-plugins
 ```
 
-**Step 3 — Restart Claude Code**, then run:
+**Step 3 — Restart Claude Code**, verify the plugin in `/plugin`, then run:
 
 ```
-/nr-scan
+/claude-reposec:nr-scan
 ```
+
+See the [Reposec website](https://nikolareljin.github.io/claude-reposec/) for the complete workflow, privacy model, and CI examples.
 
 > **No marketplace needed** — the CLI works fully without Claude Code (see Standalone CLI below).
 
@@ -85,11 +89,11 @@ reposec --version
 ### In Claude Code
 
 ```
-/nr-scan                          # scan current directory
-/nr-scan path/to/repo             # scan a specific repo
-/nr-scan --quick                  # skip git history (faster)
-/nr-scan --save                   # save report to security-report-YYYY-MM-DD.md
-/nr-scan --ci                     # exit 1 if HIGH/CRITICAL findings exist
+/claude-reposec:nr-scan                          # scan current directory
+/claude-reposec:nr-scan path/to/repo             # scan a specific repo
+/claude-reposec:nr-scan --quick                  # skip git history (faster)
+/claude-reposec:nr-scan --save                   # save report to security-report-YYYY-MM-DD.md
+/claude-reposec:nr-scan --ci                     # exit 1 if HIGH/CRITICAL findings exist
 ```
 
 ### Standalone CLI
