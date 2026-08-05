@@ -3,7 +3,7 @@ description: Deep security scan of a git repo — secrets, PII, vulnerabilities,
 argument-hint: "[path] [--quick] [--save] [--ci]"
 ---
 
-# /nr-scan — Repository Security Scan
+# /claude-reposec:nr-scan — Repository Security Scan
 
 Perform a deep security scan of a git repository. Detects secrets, PII, code vulnerabilities,
 git history leaks, and dependency CVEs.
@@ -11,7 +11,7 @@ git history leaks, and dependency CVEs.
 ## Usage
 
 ```
-/nr-scan [path] [--quick] [--save] [--ci]
+/claude-reposec:nr-scan [path] [--quick] [--save] [--ci]
 ```
 
 ## Arguments
@@ -35,7 +35,7 @@ If this fails, show the user:
 reposec is not installed. Install it with:
   pipx install git+https://github.com/nikolareljin/claude-reposec
   (or: pip install --user git+https://github.com/nikolareljin/claude-reposec)
-Then re-run /nr-scan.
+Then re-run /claude-reposec:nr-scan.
 ```
 
 Do not proceed if `reposec` is not available.

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reposec scans Git repositories for secrets, PII, vulnerable code, history leaks, and dependency CVEs.">
+  <meta name="theme-color" content="#071b17"><meta property="og:title" content="Reposec — repository security, in context">
+  <meta property="og:description" content="Five focused security scans, one readable report, directly in Claude Code or your terminal.">
+  <meta property="og:type" content="website"><meta property="og:url" content="https://nikolareljin.github.io/claude-reposec/">
+  <link rel="canonical" href="https://nikolareljin.github.io/claude-reposec/"><link rel="stylesheet" href="styles.css">
+  <title>Reposec — repository security, in context</title>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav class="wrap nav" aria-label="Main navigation"><a class="brand" href="#top"><i>◆</i> reposec</a><div><a href="#capabilities">Capabilities</a><a href="#install">Install</a><a href="#privacy">Privacy</a><a href="https://github.com/nikolareljin/claude-reposec">GitHub</a></div></nav></header>
+<main id="main">
+  <section class="hero wrap" id="top"><p class="eyebrow">Security signal without the noise</p><h1>Find what your repository<br><span>should not be hiding.</span></h1><p class="lede">Reposec brings secrets, personal data, risky code, Git history, and dependency vulnerabilities into one prioritized report—inside Claude Code or from the terminal.</p><p class="actions"><a class="button primary" href="#install">Install Reposec</a><a class="button" href="https://github.com/nikolareljin/claude-reposec">View source</a></p><div class="terminal"><div class="terminal-bar"><i></i><i></i><i></i><b>Claude Code</b></div><pre><code><em>›</em> /claude-reposec:nr-scan
+
+  ✓ secrets       0 critical
+  ✓ personal data 2 findings
+  ✓ git history   checked
+  ✓ source code   1 high
+  ✓ dependencies  3 advisories
+
+  Report ready · sensitive values redacted</code></pre></div></section>
+  <section class="section wrap" id="capabilities"><p class="eyebrow">Five complementary lenses</p><h2>A practical repository review</h2><div class="grid cards">
+    <article><span>01</span><h3>Secrets</h3><p>Detects cloud keys, tokens, private keys, connection strings, and other credentials across text files.</p></article>
+    <article><span>02</span><h3>Personal data</h3><p>Flags email, phone, SSN, and credit-card patterns, with Luhn validation to reduce false positives.</p></article>
+    <article><span>03</span><h3>Git history</h3><p>Finds sensitive content and filenames that were committed—even when they were later removed.</p></article>
+    <article><span>04</span><h3>Code vulnerabilities</h3><p>Surfaces risky patterns such as debug configuration, command injection, SQL concatenation, and missing auth.</p></article>
+    <article><span>05</span><h3>Dependencies</h3><p>Checks Python and npm package versions against OSV advisories, with a 24-hour local cache.</p></article>
+  </div></section>
+  <section class="section band" id="install"><div class="wrap split"><div><p class="eyebrow">One marketplace, every plugin</p><h2>Install in three steps</h2><p>Python 3.10+ is required. Git enables history scanning, and internet access enables dependency checks through OSV.</p></div><ol class="steps">
+    <li><strong>Install the CLI</strong><pre><code>pipx install git+https://github.com/nikolareljin/claude-reposec</code></pre></li>
+    <li><strong>Add the marketplace once</strong><pre><code>/plugin marketplace add nikolareljin/claude-plugins</code></pre></li>
+    <li><strong>Install, restart, and verify</strong><pre><code>/plugin install claude-reposec@nikolareljin-plugins
+/plugin
+/claude-reposec:nr-scan</code></pre></li>
+  </ol></div></section>
+  <section class="section wrap" id="quick-start"><p class="eyebrow">Use it your way</p><h2>Interactive review or automated gate</h2><div class="grid uses">
+    <article><h3>Claude Code</h3><pre><code>/claude-reposec:nr-scan
+/claude-reposec:nr-scan --quick
+/claude-reposec:nr-scan --save</code></pre><p>Review findings in context and save Markdown when you need an audit trail.</p></article>
+    <article><h3>Standalone CLI</h3><pre><code>reposec scan path/to/repo
+reposec scan --json
+reposec scan --output report.md</code></pre><p>Run the same scanners without Claude Code and choose readable or structured output.</p></article>
+    <article><h3>Continuous integration</h3><pre><code>- name: Repository security
+  run: |
+    pipx install git+https://github.com/nikolareljin/claude-reposec
+    reposec scan --ci</code></pre><p><code>--ci</code> exits 1 when HIGH or CRITICAL findings are present.</p></article>
+  </div></section>
+  <section class="section privacy" id="privacy"><div class="wrap split"><div><p class="eyebrow">A deliberate data boundary</p><h2>Your source stays local.</h2></div><div><p>Secret values are redacted in output and are never stored or logged. Reports contain only safe previews.</p><p>Dependency checks send package names and versions to the <a href="https://osv.dev/">OSV API</a>. Source code and file paths are never included. Without network access, local scanners still run while OSV lookups are unavailable.</p></div></div></section>
+  <section class="section wrap" id="ecosystem"><p class="eyebrow">Part of a growing toolset</p><h2>Explore the ecosystem</h2><div class="grid ecosystem">
+    <a href="https://nikolareljin.github.io/claude-plugins/"><strong>Claude Plugins</strong><span>Marketplace and installation hub →</span></a>
+    <a href="https://nikolareljin.github.io/claude-docsmith/"><strong>Docsmith</strong><span>Documentation for users and developers →</span></a>
+    <a href="https://nikolareljin.github.io/claude-reelsmith/"><strong>Reelsmith</strong><span>Turn long video into focused clips →</span></a>
+    <a href="https://nikolareljin.github.io/docforge/"><strong>Docforge</strong><span>Standalone documentation automation →</span></a>
+  </div></section>
+</main>
+<footer><div class="wrap footer"><span>Reposec · MIT licensed</span><nav aria-label="Footer navigation"><a href="https://github.com/nikolareljin/claude-reposec/blob/main/PRIVACY.md">Privacy</a><a href="https://github.com/nikolareljin/claude-reposec/blob/main/SECURITY.md">Security</a><a href="https://github.com/nikolareljin/claude-reposec/issues">Support</a></nav></div></footer>
+</body></html>

@@ -11,4 +11,5 @@ jobs:
     uses: nikolareljin/ci-helpers/.github/workflows/python.yml@production
     with:
       python_version: "3.12"
+      lint_command: "python -m pip install . ruff==0.15.12 && ruff check ."
       test_command: "python -m pip install pytest && pytest tests/ -v"
