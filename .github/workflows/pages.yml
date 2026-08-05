@@ -25,7 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # enablement: true makes the deploy self-healing — the first run failed with
+      # "Get Pages site failed ... Not Found" because Pages had never been turned on
+      # for this repo. With enablement the action provisions the Actions-built Pages
+      # site itself (idempotent once it exists) instead of erroring out.
       - uses: actions/configure-pages@v6
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site
