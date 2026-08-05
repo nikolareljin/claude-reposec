@@ -21,7 +21,7 @@ class SiteParser(HTMLParser):
 
 def test_site_assets_and_internal_links_exist() -> None:
     parser = SiteParser()
-    parser.feed((SITE / "index.html").read_text())
+    parser.feed((SITE / "index.html").read_text(encoding="utf-8"))
     assert (SITE / "styles.css").is_file()
     for link in parser.links:
         if link.startswith("#"):
@@ -31,7 +31,7 @@ def test_site_assets_and_internal_links_exist() -> None:
 
 
 def test_site_documents_install_and_privacy_boundary() -> None:
-    page = (SITE / "index.html").read_text()
+    page = (SITE / "index.html").read_text(encoding="utf-8")
     assert "/claude-reposec:nr-scan" in page
     assert "/plugin marketplace add nikolareljin/claude-plugins" in page
     assert "Source code and file paths are never included" in page
