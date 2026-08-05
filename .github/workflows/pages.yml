@@ -25,6 +25,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # PREREQUISITE: Pages must be enabled at the repo level with the build source
+      # set to GitHub Actions (Settings > Pages, or `gh api -X POST repos/OWNER/REPO/pages
+      # -f build_type=workflow`). Without it this step fails with "Get Pages site
+      # failed ... Not Found", which is exactly how the first deploy on main broke.
+      # This is deliberately NOT automated via the action's `enablement: true`: that
+      # input "requires a token other than GITHUB_TOKEN" (PAT with repo scope, or an
+      # App with administration:write), so enabling it here would trade a one-time
+      # setup error for a permission error on every run.
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v5
         with:

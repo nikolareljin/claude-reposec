@@ -9,7 +9,14 @@ permissions:
   pull-requests: read
 
 jobs:
+  # auto-tag.yml, not auto-tag-release.yml: this repo never auto-dispatches a
+  # follow-up release workflow, and auto-tag-release.yml declares `actions: write`
+  # for its dispatch job. GitHub validates a called workflow's declared permissions
+  # at startup regardless of job `if:` gates, so calling it here failed the run
+  # outright ("requesting 'actions: write', but is only allowed 'actions: none'").
+  # auto-tag.yml has identical tagging behaviour and needs only the permissions
+  # granted above.
   tag:
-    uses: nikolareljin/ci-helpers/.github/workflows/auto-tag-release.yml@production
+    uses: nikolareljin/ci-helpers/.github/workflows/auto-tag.yml@production
     with:
       update_production_tag: false
